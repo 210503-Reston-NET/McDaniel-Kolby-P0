@@ -1,0 +1,16 @@
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\bin\Debug\net5.0\ComputerShop.exe
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\bin\Debug\net5.0\ComputerShop.deps.json
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\bin\Debug\net5.0\ComputerShop.runtimeconfig.json
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\bin\Debug\net5.0\ComputerShop.runtimeconfig.dev.json
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\bin\Debug\net5.0\ComputerShop.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\bin\Debug\net5.0\ref\ComputerShop.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\bin\Debug\net5.0\ComputerShop.pdb
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\obj\Debug\net5.0\ComputerShop.csprojAssemblyReference.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\obj\Debug\net5.0\ComputerShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\obj\Debug\net5.0\ComputerShop.AssemblyInfoInputs.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\obj\Debug\net5.0\ComputerShop.AssemblyInfo.cs
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\obj\Debug\net5.0\ComputerShop.csproj.CoreCompileInputs.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\obj\Debug\net5.0\ComputerShop.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\obj\Debug\net5.0\ref\ComputerShop.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\obj\Debug\net5.0\ComputerShop.pdb
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ComputerShop\CSUI\obj\Debug\net5.0\ComputerShop.genruntimeconfig.cache
