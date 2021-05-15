@@ -1,14 +1,16 @@
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSUI.exe
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSUI.deps.json
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSUI.runtimeconfig.json
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSUI.runtimeconfig.dev.json
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSUI.dll
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\ref\CSUI.dll
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSUI.pdb
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSBL.dll
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSDL.dll
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSModels.dll
-C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSModels.pdb
-C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSBL.pdb
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSDL.pdb
-C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\obj\Debug\net5.0\CSUI.csprojAssemblyReference.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSBL.pdb
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\bin\Debug\net5.0\CSModels.pdb
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\obj\Debug\net5.0\CSUI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\obj\Debug\net5.0\CSUI.AssemblyInfoInputs.cache
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\obj\Debug\net5.0\CSUI.AssemblyInfo.cs
@@ -17,3 +19,5 @@ C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\obj\Debug\net5.0\CSUI.c
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\obj\Debug\net5.0\CSUI.dll
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\obj\Debug\net5.0\ref\CSUI.dll
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\obj\Debug\net5.0\CSUI.pdb
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\obj\Debug\net5.0\CSUI.genruntimeconfig.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSUI\obj\Debug\net5.0\CSUI.csprojAssemblyReference.cache

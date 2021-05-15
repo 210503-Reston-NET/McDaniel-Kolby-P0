@@ -18,23 +18,12 @@ namespace CSModels
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public double Price 
-        {
-            get { return this.Price; }
-            set
-            {
-                if (this.Price <= 0)
-                {
-                    throw new Exception("Price should be greater than zero.");
-                }
-                this.Price = value;
-            } 
-        }
+        public double Price { get; set; }
         public string Description { get; set; }
 
         public override string ToString()
         {
-            return $" Product: {Name} \n Price: ${Price} \n Description: {Description}";
+            return $" Product: {Name} \n     Price: ${Price} \n     Description: {Description} \n";
         }
 
         public bool Equals(Product product)

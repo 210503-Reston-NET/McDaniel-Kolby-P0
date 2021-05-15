@@ -1,12 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\CSModels\CSModels.csproj" />
-    <ProjectReference Include="..\CSBL\CSBL.csproj" />
     <ProjectReference Include="..\CSDL\CSDL.csproj" />
+    <ProjectReference Include="..\CSbl\CSBL.csproj" />
+    <ProjectReference Include="..\CSModels\CSModels.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 

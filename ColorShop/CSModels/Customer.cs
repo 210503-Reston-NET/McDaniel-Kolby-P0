@@ -26,7 +26,7 @@ namespace CSModels
 
         public override string ToString()
         {
-            return $" Name: {Name} \n Username: {Username} \n";
+            return $" Name: {Name} \n    Username: {Username} \n";
         }
         public bool Equals(Customer customer)
         {

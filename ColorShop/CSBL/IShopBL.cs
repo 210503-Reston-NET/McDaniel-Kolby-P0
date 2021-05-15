@@ -3,8 +3,10 @@ using CSModels;
 
 namespace CSBL
 {
-    public interface IColorBL
+    public interface IShopBL
     {
         List<Product> GetAllColors();
+        List<Customer> GetAllUsers();
+        List<Location> GetAllLocations();
     }
 }

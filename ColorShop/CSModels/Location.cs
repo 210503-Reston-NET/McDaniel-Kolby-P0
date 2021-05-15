@@ -5,10 +5,13 @@ namespace CSModels
     public class Location
     {
         public Location() {}
-        public Location(string city, string state, Customer manager)
+        public Location(string city, string state)
         {
             this.City = city;
             this.State = state;
+        }
+        public Location(string city, string state, Customer manager) : this(city, state)
+        {
             this.Manager = manager;
         }
         public Location(int id, string city, string state, Customer manager) : this(city, state, manager)
@@ -25,7 +28,7 @@ namespace CSModels
 
         public override string ToString()
         {
-            return $" Location: {City}, {State} \n Manager: {Manager} \n";
+            return $" Location: {City}, {State} \n    Manager: {Manager.Name} \n";
         }
     }
 }
