@@ -1,0 +1,5 @@
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\csui\obj\Debug\net5.0\CSUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\csui\obj\Debug\net5.0\CSUI.AssemblyInfoInputs.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\csui\obj\Debug\net5.0\CSUI.AssemblyInfo.cs
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\csui\obj\Debug\net5.0\CSUI.csproj.CoreCompileInputs.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\csui\obj\Debug\net5.0\CSUI.csprojAssemblyReference.cache

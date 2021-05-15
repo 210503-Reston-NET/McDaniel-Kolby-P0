@@ -1,0 +1,15 @@
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\bin\Debug\net5.0\CSDL.deps.json
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\bin\Debug\net5.0\CSDL.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\bin\Debug\net5.0\ref\CSDL.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\bin\Debug\net5.0\CSDL.pdb
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\bin\Debug\net5.0\CSModels.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\bin\Debug\net5.0\CSModels.pdb
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.csprojAssemblyReference.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.AssemblyInfoInputs.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.AssemblyInfo.cs
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.csproj.CoreCompileInputs.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.csproj.CopyComplete
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\ref\CSDL.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.pdb

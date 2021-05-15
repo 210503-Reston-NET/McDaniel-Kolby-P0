@@ -1,0 +1,12 @@
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\bin\Debug\net5.0\CSModels.deps.json
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\bin\Debug\net5.0\CSModels.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\bin\Debug\net5.0\ref\CSModels.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\bin\Debug\net5.0\CSModels.pdb
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\obj\Debug\net5.0\CSModels.csprojAssemblyReference.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\obj\Debug\net5.0\CSModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\obj\Debug\net5.0\CSModels.AssemblyInfoInputs.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\obj\Debug\net5.0\CSModels.AssemblyInfo.cs
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\obj\Debug\net5.0\CSModels.csproj.CoreCompileInputs.cache
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\obj\Debug\net5.0\CSModels.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\obj\Debug\net5.0\ref\CSModels.dll
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSModels\obj\Debug\net5.0\CSModels.pdb

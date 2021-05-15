@@ -1,0 +1,135 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "CSBL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "CSDL": "1.0.0",
+          "CSModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CSBL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CSBL.dll": {}
+        }
+      },
+      "CSDL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "CSModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CSDL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CSDL.dll": {}
+        }
+      },
+      "CSModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/CSModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CSModels.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CSBL/1.0.0": {
+      "type": "project",
+      "path": "../CSBL/CSBL.csproj",
+      "msbuildProject": "../CSBL/CSBL.csproj"
+    },
+    "CSDL/1.0.0": {
+      "type": "project",
+      "path": "../CSDL/CSDL.csproj",
+      "msbuildProject": "../CSDL/CSDL.csproj"
+    },
+    "CSModels/1.0.0": {
+      "type": "project",
+      "path": "../CSModels/CSModels.csproj",
+      "msbuildProject": "../CSModels/CSModels.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "CSBL >= 1.0.0",
+      "CSDL >= 1.0.0",
+      "CSModels >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\kolby\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\csui\\CSUI.csproj",
+      "projectName": "CSUI",
+      "projectPath": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\csui\\CSUI.csproj",
+      "packagesPath": "C:\\Users\\kolby\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\csui\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\kolby\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\CSBL\\CSBL.csproj": {
+              "projectPath": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\CSBL\\CSBL.csproj"
+            },
+            "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\CSDL\\CSDL.csproj": {
+              "projectPath": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\CSDL\\CSDL.csproj"
+            },
+            "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\CSModels\\CSModels.csproj": {
+              "projectPath": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\CSModels\\CSModels.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
