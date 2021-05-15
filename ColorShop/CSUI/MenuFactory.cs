@@ -12,7 +12,9 @@ namespace CSUI
                 case "welcome":
                     return new WelcomeMenu();
                 case "main":
-                    return new MainMenu(new ColorBL(new RepoFile()));
+                    return new MainMenu(new ShopBL(new RepoFile()));
+                case "manager":
+                    return new ManagerMenu();
                 default:
                     return null;
             }
