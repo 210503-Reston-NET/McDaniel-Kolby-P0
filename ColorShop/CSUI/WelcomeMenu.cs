@@ -25,7 +25,8 @@ namespace CSUI
                     case "no":
                         repeat = false;
                         Console.WriteLine("Success! Logging in...");
-                        MenuFactory.GetMenu("main").Start();
+                        mainMenu = MenuFactory.GetMenu("main");
+                        mainMenu.Start();
                         break;
                     default:
                         Console.WriteLine("Please input a valid option");

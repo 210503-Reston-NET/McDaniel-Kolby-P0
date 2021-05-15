@@ -1,0 +1,65 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "CSUI/1.0.0": {
+        "dependencies": {
+          "CSBL": "1.0.0",
+          "CSDL": "1.0.0",
+          "CSModels": "1.0.0"
+        },
+        "runtime": {
+          "CSUI.dll": {}
+        }
+      },
+      "CSBL/1.0.0": {
+        "dependencies": {
+          "CSDL": "1.0.0",
+          "CSModels": "1.0.0"
+        },
+        "runtime": {
+          "CSBL.dll": {}
+        }
+      },
+      "CSDL/1.0.0": {
+        "dependencies": {
+          "CSModels": "1.0.0"
+        },
+        "runtime": {
+          "CSDL.dll": {}
+        }
+      },
+      "CSModels/1.0.0": {
+        "runtime": {
+          "CSModels.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CSUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CSBL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CSDL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CSModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -71,11 +71,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\csui\\CSUI.csproj",
+      "projectUniqueName": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\CSUI\\CSUI.csproj",
       "projectName": "CSUI",
-      "projectPath": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\csui\\CSUI.csproj",
+      "projectPath": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\CSUI\\CSUI.csproj",
       "packagesPath": "C:\\Users\\kolby\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\csui\\obj\\",
+      "outputPath": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\CSUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kolby\\AppData\\Roaming\\NuGet\\NuGet.Config",
