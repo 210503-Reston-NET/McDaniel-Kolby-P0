@@ -23,5 +23,24 @@ namespace CSBL
         {
             return _repo.GetAllLocations();
         }
+
+        public Customer AddUser(Customer customer)
+        {
+            if (_repo.GetUser(customer) != null)
+            {
+                throw new System.Exception("Restaurant already exists.");
+            }
+            return _repo.AddUser(customer);
+        }
+
+        public Customer GetUser(Customer customer)
+        {
+            return _repo.GetUser(customer);
+        }
+
+        public Customer DeleteUser(Customer customer)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

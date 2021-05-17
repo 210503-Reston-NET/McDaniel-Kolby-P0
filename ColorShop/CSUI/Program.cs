@@ -6,7 +6,7 @@ namespace CSUI
     {
         static void Main(string[] args)
         {
-            MenuFactory.GetMenu("welcome").Start();
+            MenuFactory.GetMenu("welcome", null).Start();
         }
     }
 }

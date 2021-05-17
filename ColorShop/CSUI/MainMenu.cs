@@ -8,39 +8,47 @@ namespace CSUI
     public class MainMenu : IMenu
     {
         private IShopBL _shopBL;
+        private Customer _user;
         public MainMenu(IShopBL shopBL)
         {
             _shopBL = shopBL;
         }
+        public MainMenu(IShopBL shopBL, Customer user) : this(shopBL)
+        {
+            _user = user;
+        }
         public void Start() 
         {
             bool repeat = true;
-            Console.WriteLine("\nWelcome to the Main Menu!");
+            Console.WriteLine("\nMain Menu");
             do
             {
-            Console.WriteLine("What would you like to do?");
-            Console.WriteLine("[0] Browse full selection of colors");
-            Console.WriteLine("[1] Search users");
-            Console.WriteLine("[2] See store locations");
-            Console.WriteLine("[3] View cart");
-            Console.WriteLine("[4] Access Manager Menu");
-            Console.WriteLine("[5] Exit");
-            //while (repeat)
-            //{
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("[0] Go to Products Menu");
+                Console.WriteLine("[1] Go to Users Menu");
+                Console.WriteLine("[2] Go to StoreFront Menu");
+                Console.WriteLine("[3] View cart");
+                Console.WriteLine("[4] Access Manager Menu");
+                Console.WriteLine("[5] Exit");
+                //while (repeat)
+                //{
                 string input = Console.ReadLine();
                 switch (input) 
                 {
                     case "0":
                         Console.WriteLine("Full selection: ");
                         ViewColors();
+                        MenuFactory.GetMenu("product", _user).Start();
                         break;
                     case "1":
                         Console.WriteLine("Users: ");
                         ViewUsers();
+                        MenuFactory.GetMenu("user", _user).Start();
                         break;
                     case "2":
                         Console.WriteLine("Store Locations:");
                         ViewLocations();
+                        MenuFactory.GetMenu("location", _user).Start();
                         break;
                     case "3":
                         Console.WriteLine("Selected \"View cart\"");
@@ -66,7 +74,7 @@ namespace CSUI
             // Console.WriteLine("Access prohibited. You are not on a manager account.");
 
             // else find location for manager.
-            MenuFactory.GetMenu("manager").Start();
+            MenuFactory.GetMenu("manager", _user).Start();
         }
 
         private void ViewLocations()
