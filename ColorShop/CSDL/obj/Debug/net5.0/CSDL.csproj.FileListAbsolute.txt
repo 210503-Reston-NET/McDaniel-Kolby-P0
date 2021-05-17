@@ -13,3 +13,6 @@ C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.c
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.dll
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\ref\CSDL.dll
 C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.pdb
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\bin\Debug\net5.0\CSDL.runtimeconfig.json
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\bin\Debug\net5.0\CSDL.runtimeconfig.dev.json
+C:\Users\kolby\Revature\McDaniel-Kolby-P0\ColorShop\CSDL\obj\Debug\net5.0\CSDL.genruntimeconfig.cache

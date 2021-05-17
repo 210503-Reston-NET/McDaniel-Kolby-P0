@@ -7,10 +7,13 @@ namespace CSModels
     {
         // constructor here
         public Customer() {}
-        public Customer(string name, string username, string password) 
+        public Customer(string name, string username)
         {
             this.Name = name;
             this.Username = username;
+        }
+        public Customer(string name, string username, string password) : this(name, username)
+        {
             this.Password = password;
         }
         public Customer(int id, string name, string username, string password) : this(name, username, password)

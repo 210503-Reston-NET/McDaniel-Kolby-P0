@@ -3,14 +3,13 @@ namespace CSModels
     public class OrderDetails
     {
         public OrderDetails() {}
-        public OrderDetails(Order order, Product product, int quantity, double amount)
+        public OrderDetails(Order order, Product product, int quantity)
         {
             this.Order = order;
             this.Product = product;
             this.Quantity = quantity;
-            this.Amount = amount;
         }
-        public OrderDetails(int id, Order order, Product product, int quantity, double amount) : this(order, product, quantity, amount)
+        public OrderDetails(int id, Order order, Product product, int quantity) : this(order, product, quantity)
         {
             this.Id = id;
         }
@@ -19,7 +18,6 @@ namespace CSModels
         public Order Order { get; set; }
         public Product Product { get; set; }
         public int Quantity { get; set; }
-        public double Amount { get; set; }
 
 
     }
