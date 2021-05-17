@@ -10,7 +10,7 @@ create table Customers
 (
     id int identity primary key,
     name nvarchar(50) not null,
-    username nvarchar(50) not null,
+    username nvarchar(50) unique not null,
     password nvarchar(50) not null
 );
 
@@ -19,7 +19,7 @@ create table Locations
     id int identity primary key,
     city nvarchar(50) not null,
     state nvarchar(50) not null,
-    manager int foreign key references Customers(id)
+    manager int not null foreign key references Customers(id)
 );
 
 create table Products

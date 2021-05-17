@@ -17,35 +17,33 @@ namespace CSUI
         public void Start()
         {
             bool repeat = true;
-            Console.WriteLine("Welcome to Kolby's Color Shop Application!");
-            Console.WriteLine("New user?");
-            Console.WriteLine("[0] Yes");
-            Console.WriteLine("[1] No");
-            Console.WriteLine("[2] Exit");
+            Console.WriteLine("Welcome to The Colorful Shop Online!");
             while (repeat) 
             {
+                Console.WriteLine("New user?");
+                Console.WriteLine("[1] Yes");
+                Console.WriteLine("[2] No");
+                Console.WriteLine("[0] Exit");
                 string input = Console.ReadLine();
                 switch (input) 
                 {
-                    case "0":
-                    case "yes":
-                        bool success = false;
-                        while(!success)
-                        {
-                            success = AddAUser();
-                        }
-                        repeat = false;
-                        mainMenu = MenuFactory.GetMenu("main", _user);
-                        mainMenu.Start();
-                        break;
                     case "1":
-                    case "no":
-                        Login();
+                    case "yes":
+                        if (!AddAUser())
+                            break;
                         repeat = false;
                         mainMenu = MenuFactory.GetMenu("main", _user);
                         mainMenu.Start();
                         break;
                     case "2":
+                    case "no":
+                        if (!Login())
+                            break;
+                        repeat = false;
+                        mainMenu = MenuFactory.GetMenu("main", _user);
+                        mainMenu.Start();
+                        break;
+                    case "0":
                         repeat = false;
                         break;
                     default:
@@ -55,29 +53,26 @@ namespace CSUI
             } 
         }
 
-        private void Login()
+        private bool Login()
         {
-            bool repeat = true;
-            do
-            {
-                Console.WriteLine("Enter your username: ");
-                string username = Console.ReadLine();
-                Console.WriteLine("Enter your password: ");
-                string password = Console.ReadLine();
+            Console.WriteLine("Enter your username: ");
+            string username = Console.ReadLine();
+            Console.WriteLine("Enter your password: ");
+            string password = Console.ReadLine();
 
-                Customer credentials = new Customer(username, password);
-                Customer found = _shopBL.GetUser(credentials);
-                if (found == null)
-                {
-                    Console.WriteLine("Incorrect username/password. Please try again");
-                }
-                else 
-                {
-                    Console.WriteLine($"\nWelcome {found.Name}! Logging in...");
-                    _user = found;
-                    repeat = false;
-                }
-            } while(repeat);
+            Customer credentials = new Customer(username, password);
+            Customer found = _shopBL.GetUser(credentials);
+            if (found == null)
+            {
+                Console.WriteLine("Incorrect username/password.");
+                return false;
+            }
+            else 
+            {
+                Console.WriteLine($"\nWelcome {found.Name}! Logging in...");
+                _user = found;
+                return true;
+            }
         }
 
         private bool AddAUser()

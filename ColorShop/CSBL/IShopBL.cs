@@ -6,13 +6,20 @@ namespace CSBL
     public interface IShopBL
     {
         List<Product> GetAllColors();
+        Product GetColor(Product product);
+        Product AddColor(Product product);
+        Product DeleteColor(Product product);
+
 
         List<Customer> GetAllUsers();
-        Customer AddUser(Customer customer);
         Customer GetUser(Customer customer);
+        Customer AddUser(Customer customer);
         Customer DeleteUser(Customer customer);
 
 
         List<Location> GetAllLocations();
+        Location GetLocation(Location location);
+        Location AddLocation(Location location);
+        Location DeleteLocation(Location location);
     }
 }

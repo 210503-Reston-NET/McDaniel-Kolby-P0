@@ -20,44 +20,41 @@ namespace CSUI
         public void Start() 
         {
             bool repeat = true;
-            Console.WriteLine("\nMain Menu");
+            
             do
             {
+                Console.WriteLine("\nMain Menu");
                 Console.WriteLine("What would you like to do?");
-                Console.WriteLine("[0] Go to Products Menu");
-                Console.WriteLine("[1] Go to Users Menu");
-                Console.WriteLine("[2] Go to StoreFront Menu");
-                Console.WriteLine("[3] View cart");
-                Console.WriteLine("[4] Access Manager Menu");
-                Console.WriteLine("[5] Exit");
+                Console.WriteLine("[1] Go to Products Menu");
+                Console.WriteLine("[2] Go to Users Menu");
+                Console.WriteLine("[3] Go to StoreFront Menu");
+                Console.WriteLine("[4] View cart");
+                Console.WriteLine("[5] Access Manager Menu");
+                Console.WriteLine("[0] Exit");
                 //while (repeat)
                 //{
                 string input = Console.ReadLine();
                 switch (input) 
                 {
-                    case "0":
-                        Console.WriteLine("Full selection: ");
-                        ViewColors();
+                    case "1":
                         MenuFactory.GetMenu("product", _user).Start();
                         break;
-                    case "1":
-                        Console.WriteLine("Users: ");
-                        ViewUsers();
+                    case "2":
                         MenuFactory.GetMenu("user", _user).Start();
                         break;
-                    case "2":
+                    case "3":
                         Console.WriteLine("Store Locations:");
                         ViewLocations();
-                        MenuFactory.GetMenu("location", _user).Start();
-                        break;
-                    case "3":
-                        Console.WriteLine("Selected \"View cart\"");
+                        //MenuFactory.GetMenu("location", _user).Start();
                         break;
                     case "4":
-                        // check if manager
-                        CheckManager();
+                        Console.WriteLine("Selected \"View cart\"");
                         break;
                     case "5":
+                        // check if manager
+                        //CheckManager();
+                        break;
+                    case "0":
                         Console.WriteLine("Exiting...");
                         repeat = false;
                         break;
@@ -114,78 +111,6 @@ namespace CSUI
             }
         }
 
-        private void ViewUsers()
-        {
-            int i = 0;
-            List<Customer> users = _shopBL.GetAllUsers();
-            if (users.Count == 0) Console.WriteLine("No users. You should add some.");
-            else 
-            {
-                foreach (Customer user in users)
-                {
-                    Console.WriteLine("[" + ++i + "]" + user.ToString());
-                }
-
-                bool repeat = true;
-                Console.WriteLine("Choose which Customer page you would like to visit. Otherwise type [0] to go back.");
-                do 
-                {
-                    string input = Console.ReadLine();
-                    int n;
-                    if (int.TryParse(input, out n))
-                    {
-                        if (input == "0")
-                        {
-                            Console.WriteLine("Returning to main menu...");
-                            repeat = false;
-                        }
-                        else if(n <= users.Count) 
-                        {
-                            Console.WriteLine("You chose " + users[n - 1].Name);
-                            // go to customer menu
-                        }
-                        else Console.WriteLine("invalid input");
-                    }
-                    else Console.WriteLine("invalid input");
-                } while (repeat);
-            }
-        }
-
-        private void ViewColors()
-        {
-            int i = 0;
-            List<Product> colors = _shopBL.GetAllColors();
-            if (colors.Count == 0) Console.WriteLine("No products. You should add some.");
-            else
-            {
-                foreach (Product color in colors)
-                {
-                    Console.WriteLine("[" + ++i + "]" + color.ToString());
-                }
-
-                bool repeat = true;
-                Console.WriteLine("Choose which Product you would like to purchase. Otherwise type [0] to go back.");
-                do
-                {
-                    string input = Console.ReadLine();
-                    int n;
-                    if (int.TryParse(input, out n))
-                    {
-                        if (input == "0")
-                        {
-                            Console.WriteLine("Returning to main menu...");
-                            repeat = false;
-                        }
-                        else if (n <= colors.Count) 
-                        {
-                            Console.WriteLine("You chose " + colors[n - 1].Name);
-                            // go to product menu
-                        }
-                        else Console.WriteLine("invalid input");
-                    }
-                    else Console.WriteLine("invalid input");
-                } while(repeat);
-            }
-        }
+        
     }
 }

@@ -5,9 +5,12 @@ namespace CSModels
     public class Product
     {
         public Product() {}
-        public Product(string name, double price, string description)
+        public Product(string name)
         {
             this.Name = name;
+        }
+        public Product(string name, double price, string description) : this(name)
+        {
             this.Price = price;
             this.Description = description;
         }
@@ -23,7 +26,7 @@ namespace CSModels
 
         public override string ToString()
         {
-            return $" Product: {Name} \n     Price: ${Price} \n     Description: {Description} \n";
+            return $" Product: {Name} \n Price: ${Price} \n Description: {Description} \n";
         }
 
         public bool Equals(Product product)

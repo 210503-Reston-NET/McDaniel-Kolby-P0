@@ -7,6 +7,10 @@ namespace CSModels
     {
         // constructor here
         public Customer() {}
+        public Customer(string name)
+        {
+            this.Name = name;
+        }
         public Customer(string username, string password)
         {
             this.Username = username;
@@ -29,7 +33,7 @@ namespace CSModels
 
         public override string ToString()
         {
-            return $" Name: {Name} \n    Username: {Username} \n";
+            return $" Name: {Name} \n Username: {Username} \n";
         }
         public bool Equals(Customer customer)
         {

@@ -6,6 +6,9 @@ namespace CSDL
     public interface IRepository
     {
         List<Product> GetAllColors();
+        Product GetColor(Product product);
+        Product AddColor(Product product);
+        Product DeleteColor(Product product);
 
         List<Customer> GetAllUsers();
         Customer GetUser(Customer user);
@@ -13,5 +16,8 @@ namespace CSDL
         Customer DeleteUser(Customer user);
 
         List<Location> GetAllLocations();
+        Location GetLocation(Location location);
+        Location AddLocation(Location location);
+        Location DeleteLocation(Location location);
     }
 }

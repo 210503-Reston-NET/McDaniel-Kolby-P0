@@ -28,7 +28,7 @@ namespace CSModels
 
         public override string ToString()
         {
-            return $" Location: {City}, {State} \n    Manager: {Manager.Name} \n";
+            return $" Location: {City}, {State} \n Manager: {Manager.Name} \n";
         }
     }
 }

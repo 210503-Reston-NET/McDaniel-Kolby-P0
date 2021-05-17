@@ -12,6 +12,8 @@ namespace CSDL
         {
             _context = context;
         }
+
+        // Users database calls
         public List<Model.Customer> GetAllUsers()
         {
             return _context.Customers
@@ -19,35 +21,87 @@ namespace CSDL
                 user => new Model.Customer(user.Name, user.Username, user.Password)
             ).ToList();
         }
-        public Model.Customer GetUser(Model.Customer user)
+        public Model.Customer GetUser(Model.Customer customer)
         {
-            Entity.Customer found = _context.Customers.FirstOrDefault(customer => customer.Username == user.Username && customer.Password == user.Password);
+            Entity.Customer found = _context.Customers.FirstOrDefault(user => user.Username == customer.Username && user.Password == customer.Password);
             if (found == null) return null;
             return new Model.Customer(found.Name, found.Username, found.Password);
         }
-        public Model.Customer AddUser(Model.Customer user)
+        public Model.Customer AddUser(Model.Customer customer)
         {
             _context.Customers.Add(
                 new Entity.Customer{
-                    Name = user.Name,
-                    Username = user.Username,
-                    Password = user.Password
+                    Name = customer.Name,
+                    Username = customer.Username,
+                    Password = customer.Password
                 }
             );
             _context.SaveChanges();
-            return user;
+            return customer;
         }
-        public Model.Customer DeleteUser(Model.Customer user)
+        public Model.Customer DeleteUser(Model.Customer customer)
         {
             throw new System.NotImplementedException();
         }
 
+
+        // Products database calls
         public List<Model.Product> GetAllColors()
         {
+            return _context.Products
+            .Select(
+                color => new Model.Product(color.Name, color.Price, color.Description)
+            ).ToList();
+        }
+        public Model.Product GetColor(Model.Product product)
+        {
+            Entity.Product found = _context.Products.FirstOrDefault(color => color.Name == product.Name);
+            if (found == null) return null;
+            return new Model.Product(found.Name, found.Price, found.Description);
+        }
+        public Model.Product AddColor(Model.Product product)
+        {
+            _context.Products.Add(
+                new Entity.Product{
+                    Name = product.Name,
+                    Price = product.Price,
+                    Description = product.Description
+                }
+            );
+            _context.SaveChanges();
+            return product;
+        }
+        public Model.Product DeleteColor(Model.Product product)
+        {
             throw new System.NotImplementedException();
         }
 
+
+        // Locations database calls
         public List<Model.Location> GetAllLocations()
+        {
+            throw new System.NotImplementedException();
+        }
+        public Model.Location GetLocation(Model.Location location)
+        {
+            Entity.Location found = _context.Locations.FirstOrDefault(loc => loc.City == location.City && loc.State == location.State);
+            if (found == null) return null;
+            Entity.Customer foundManager = _context.Customers.FirstOrDefault(id => id.Id == found.Manager);
+            return new Model.Location(found.City, found.State, new Model.Customer(foundManager.Name, foundManager.Username, foundManager.Password));
+        }
+        public Model.Location AddLocation(Model.Location location)
+        {
+            _context.Locations.Add(
+                new Entity.Location{
+                    City = location.City,
+                    State = location.State,
+                    Manager = GetUser(location.Manager).Id
+                }
+            );
+            _context.SaveChanges();
+            return location;
+        }
+        public Model.Location DeleteLocation(Model.Location location)
         {
             throw new System.NotImplementedException();
         }
