@@ -45,6 +45,10 @@ namespace CSBL
         {
             return _repo.GetUser(customer);
         }
+        public Customer GetUserName(Customer customer)
+        {
+            return _repo.GetUserName(customer);
+        }   
         public Customer AddUser(Customer customer)
         {
             if (_repo.GetUser(customer) != null)
@@ -87,6 +91,18 @@ namespace CSBL
         {
             int locationId = location.Id;
             return _repo.GetInventory(locationId);
+        }
+
+        /*
+        
+        public Order AddOrder(Order order)
+        {
+            return _repo.AddOrder(order);
+        }
+        */
+        public List<Order> GetAllOrders()
+        {
+            return _repo.GetAllOrders();
         }
 
         

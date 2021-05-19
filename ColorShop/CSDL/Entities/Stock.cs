@@ -11,7 +11,6 @@ namespace CSDL.Entities
         public int Product { get; set; }
         public int Location { get; set; }
         public int Quantity { get; set; }
-        public int Max { get; set; }
 
         public virtual Location LocationNavigation { get; set; }
         public virtual Product ProductNavigation { get; set; }

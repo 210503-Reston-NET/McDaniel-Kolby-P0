@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CSDL.Entities
 {
-    public partial class OrderDetail
+    public partial class LineItem
     {
         public int Id { get; set; }
         public int Orderid { get; set; }

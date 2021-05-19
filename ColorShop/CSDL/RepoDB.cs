@@ -29,6 +29,12 @@ namespace CSDL
             if (found == null) return null;
             return new Model.Customer(found.Name, found.Username, found.Password);
         }
+        public Model.Customer GetUserName(Model.Customer customer)
+        {
+            Entity.Customer found = _context.Customers.FirstOrDefault(user => user.Name == customer.Name);
+            if (found == null) return null;
+            return new Model.Customer(found.Name, found.Username, found.Password);
+        }
         public Model.Customer AddUser(Model.Customer customer)
         {
             _context.Customers.Add(
@@ -58,12 +64,6 @@ namespace CSDL
         public Model.Product GetColor(Model.Product product)
         {
             Entity.Product found = _context.Products.FirstOrDefault(color => color.Name == product.Name);
-            if (found == null) return null;
-            return new Model.Product(found.Name, found.Price, found.Description);
-        }
-        public Model.Product GetColorID(int id)
-        {
-            Entity.Product found = _context.Products.FirstOrDefault(color => color.Id == id);
             if (found == null) return null;
             return new Model.Product(found.Name, found.Price, found.Description);
         }
@@ -100,12 +100,6 @@ namespace CSDL
             Entity.Customer foundManager = _context.Customers.FirstOrDefault(id => id.Id == found.Manager);
             return new Model.Location(found.City, found.State, new Model.Customer(foundManager.Name, foundManager.Username, foundManager.Password));
         }
-        public Model.Location GetLocationID(int id)
-        {
-            Entity.Location found = _context.Locations.FirstOrDefault(loc => loc.Id == id);
-            if (found == null) return null;
-            return new Model.Location(found.City, found.State);
-        }
         public Model.Location AddLocation(Model.Location location)
         {
             _context.Locations.Add(
@@ -129,9 +123,42 @@ namespace CSDL
         {
             return _context.Stocks.Where(product => product.Location == locationId).Select( 
                 stock => new Model.Stock(
-                    GetColorID(stock.Product), 
-                    GetLocationID(locationId), 
+                    new Model.Product(_context.Products.FirstOrDefault(color => color.Id == stock.Product).Name, 
+                        _context.Products.FirstOrDefault(color => color.Id == stock.Product).Price,
+                        _context.Products.FirstOrDefault(color => color.Id == stock.Product).Description),
+                    new Model.Location(_context.Locations.FirstOrDefault(loc => loc.Id == stock.Location).City,
+                        _context.Locations.FirstOrDefault(loc => loc.Id == stock.Location).State), 
                     stock.Quantity)
+            ).ToList();
+        }
+
+
+        // whhy is this bugging? cannot figure this part out for the life of me
+        // some kind of scaffolding error i believe
+        /*
+        public Model.Order AddOrder(Model.Order order) 
+        {
+            _context.Orders.Add(
+                new Entity.Order(
+                    Customer = GetUser(order.Customer).Id,
+                    Location = GetLocation(order.Location).Id,
+                    Total = order.Total,
+                    Time = order.Time
+                )
+            );
+            _context.SaveChanges();
+            return order;
+        }
+        */
+        public List<Model.Order> GetAllOrders()
+        {
+            return _context.Orders
+            .Select(
+                ord => new Model.Order(
+                    new Model.Customer(_context.Customers.FirstOrDefault(id => id.Id == ord.Customer).Name),
+                    new Model.Location(_context.Locations.FirstOrDefault(id => id.Id == ord.Location).City, _context.Locations.FirstOrDefault(id => id.Id == ord.Location).State), 
+                    ord.Total, 
+                    ord.Time)
             ).ToList();
         }
         

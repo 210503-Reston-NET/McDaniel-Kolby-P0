@@ -20,7 +20,7 @@ namespace CSModels
         public int Quantity { get; set; }
         public override string ToString()
         {
-            return $"Location: {Location.City}, {Location.State} \n Product: {Product.Name} \n Price: {Product.Price} \n Stock: {Quantity} \n";
+            return $"Product: {Product.Name} \n Price: ${Product.Price} \n Stock: {Quantity} \n";
         }
     }
 }

@@ -12,6 +12,7 @@ namespace CSDL
 
         List<Customer> GetAllUsers();
         Customer GetUser(Customer user);
+        Customer GetUserName(Customer user);
         Customer AddUser(Customer user);
         Customer DeleteUser(Customer user);
 
@@ -21,5 +22,9 @@ namespace CSDL
         Location DeleteLocation(Location location);
 
         List<Stock> GetInventory(int locationId);
+
+
+        //Order AddOrder(Order order);
+        List<Order> GetAllOrders();
     }
 }

@@ -13,6 +13,7 @@ namespace CSBL
 
         List<Customer> GetAllUsers();
         Customer GetUser(Customer customer);
+        Customer GetUserName(Customer user);
         Customer AddUser(Customer customer);
         Customer DeleteUser(Customer customer);
 
@@ -24,5 +25,10 @@ namespace CSBL
 
 
         List<Stock> GetInventory(Location location);
+
+        //Cart AddCartItem(Cart cartItem);
+
+        //Order AddOrder(Order order);
+        List<Order> GetAllOrders();
     }
 }

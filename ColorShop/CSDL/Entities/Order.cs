@@ -9,7 +9,7 @@ namespace CSDL.Entities
     {
         public Order()
         {
-            OrderDetails = new HashSet<OrderDetail>();
+            LineItems = new HashSet<LineItem>();
         }
 
         public int Id { get; set; }
@@ -20,6 +20,6 @@ namespace CSDL.Entities
 
         public virtual Customer CustomerNavigation { get; set; }
         public virtual Location LocationNavigation { get; set; }
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<LineItem> LineItems { get; set; }
     }
 }

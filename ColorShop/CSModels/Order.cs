@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace CSModels
 {
     public class Order
     {
+        public List<LineItem> LineItems = new List<LineItem>();
         public Order() {}
         public Order(Customer customer, Location location, double total, DateTime time)
         {
@@ -23,11 +25,17 @@ namespace CSModels
         public Location Location { get; set; }
         public double Total { get; set; }
         public DateTime Time { get; set; }
-        public List<OrderDetails> OrderDetails { get; set; }
+        
 
         public override string ToString()
         {
-            return $" Customer: {Customer} \n Location: {Location} \n Total amount: ${Total} \n Items: {OrderDetails.ToString()} \n Time: {Time} \n";
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append($" Customer: {Customer.Name} \n Location: {Location.City}, {Location.State} \n \n Order: \n");
+            foreach(LineItem line in LineItems)
+                sb.Append(line.ToString());
+            sb.Append($" \n Total amount: ${Total} \n Time: {Time} \n");
+            return sb.ToString();
         }
     }
 }

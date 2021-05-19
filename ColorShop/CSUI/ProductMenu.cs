@@ -43,10 +43,12 @@ namespace CSUI
                     case "3":
                         // if (CheckManager()) 
                         //  AddProduct();
+                        Console.WriteLine("Error: Not yet Implemented");
                         break;
                     case "4": 
                         // if (CheckManager())
                         //  DeleteProduct();
+                        Console.WriteLine("Error: Not yet Implemented");
                         break;
                     case "0":
                         repeat = false;

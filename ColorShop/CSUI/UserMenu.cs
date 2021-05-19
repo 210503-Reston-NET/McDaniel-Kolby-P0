@@ -43,6 +43,7 @@ namespace CSUI
                         Console.WriteLine(_user.ToString());
                         break;
                     case "4": 
+                        Console.WriteLine("Error: Not yet Implemented");
                         //DeleteAccount();
                         break;
                     case "0":
@@ -68,7 +69,7 @@ namespace CSUI
             string name = Console.ReadLine();
             try
             {
-                Customer foundUser = _shopBL.GetUser(new Customer(name));
+                Customer foundUser = _shopBL.GetUserName(new Customer(name));
                 Console.WriteLine(foundUser.ToString());
             }
             catch (Exception ex)

@@ -9,7 +9,6 @@ namespace CSDL.Entities
     {
         public Location()
         {
-            Carts = new HashSet<Cart>();
             Orders = new HashSet<Order>();
             Stocks = new HashSet<Stock>();
         }
@@ -17,10 +16,9 @@ namespace CSDL.Entities
         public int Id { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public int? Manager { get; set; }
+        public int Manager { get; set; }
 
         public virtual Customer ManagerNavigation { get; set; }
-        public virtual ICollection<Cart> Carts { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<Stock> Stocks { get; set; }
     }

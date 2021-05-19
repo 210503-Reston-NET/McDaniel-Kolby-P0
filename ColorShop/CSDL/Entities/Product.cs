@@ -9,8 +9,7 @@ namespace CSDL.Entities
     {
         public Product()
         {
-            Carts = new HashSet<Cart>();
-            OrderDetails = new HashSet<OrderDetail>();
+            LineItems = new HashSet<LineItem>();
             Stocks = new HashSet<Stock>();
         }
 
@@ -19,8 +18,7 @@ namespace CSDL.Entities
         public double Price { get; set; }
         public string Description { get; set; }
 
-        public virtual ICollection<Cart> Carts { get; set; }
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<LineItem> LineItems { get; set; }
         public virtual ICollection<Stock> Stocks { get; set; }
     }
 }
