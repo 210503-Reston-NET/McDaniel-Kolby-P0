@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+using System.Dynamic;
 using System.Collections.Generic;
 using Model = CSModels;
 using Entity = CSDL.Entities;
@@ -59,6 +61,12 @@ namespace CSDL
             if (found == null) return null;
             return new Model.Product(found.Name, found.Price, found.Description);
         }
+        public Model.Product GetColorID(int id)
+        {
+            Entity.Product found = _context.Products.FirstOrDefault(color => color.Id == id);
+            if (found == null) return null;
+            return new Model.Product(found.Name, found.Price, found.Description);
+        }
         public Model.Product AddColor(Model.Product product)
         {
             _context.Products.Add(
@@ -80,7 +88,10 @@ namespace CSDL
         // Locations database calls
         public List<Model.Location> GetAllLocations()
         {
-            throw new System.NotImplementedException();
+            return _context.Locations
+            .Select(
+                loc => new Model.Location(loc.Id, loc.City, loc.State, new Model.Customer(_context.Customers.FirstOrDefault(id => id.Id == loc.Manager).Name))
+            ).ToList();
         }
         public Model.Location GetLocation(Model.Location location)
         {
@@ -88,6 +99,12 @@ namespace CSDL
             if (found == null) return null;
             Entity.Customer foundManager = _context.Customers.FirstOrDefault(id => id.Id == found.Manager);
             return new Model.Location(found.City, found.State, new Model.Customer(foundManager.Name, foundManager.Username, foundManager.Password));
+        }
+        public Model.Location GetLocationID(int id)
+        {
+            Entity.Location found = _context.Locations.FirstOrDefault(loc => loc.Id == id);
+            if (found == null) return null;
+            return new Model.Location(found.City, found.State);
         }
         public Model.Location AddLocation(Model.Location location)
         {
@@ -106,6 +123,17 @@ namespace CSDL
             throw new System.NotImplementedException();
         }
 
+
+        // Get inventory call
+        public List<Model.Stock> GetInventory(int locationId)
+        {
+            return _context.Stocks.Where(product => product.Location == locationId).Select( 
+                stock => new Model.Stock(
+                    GetColorID(stock.Product), 
+                    GetLocationID(locationId), 
+                    stock.Quantity)
+            ).ToList();
+        }
         
     }
 }

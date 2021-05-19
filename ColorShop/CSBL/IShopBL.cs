@@ -21,5 +21,8 @@ namespace CSBL
         Location GetLocation(Location location);
         Location AddLocation(Location location);
         Location DeleteLocation(Location location);
+
+
+        List<Stock> GetInventory(Location location);
     }
 }

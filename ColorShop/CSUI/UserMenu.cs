@@ -81,7 +81,7 @@ namespace CSUI
         private void ViewUsers()
         {
             List<Customer> users = _shopBL.GetAllUsers();
-            if (users.Count == 0) Console.WriteLine("No users. You should add some.");
+            if (users.Count == 0) Console.WriteLine("No users in database.");
             else 
             {
                 Console.WriteLine("Full list of users: ");

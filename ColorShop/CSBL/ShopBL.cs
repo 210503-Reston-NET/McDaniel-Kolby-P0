@@ -81,6 +81,14 @@ namespace CSBL
             throw new System.NotImplementedException();
         }
 
+
+        // Inventory
+        public List<Stock> GetInventory(Location location)
+        {
+            int locationId = location.Id;
+            return _repo.GetInventory(locationId);
+        }
+
         
     }
 }

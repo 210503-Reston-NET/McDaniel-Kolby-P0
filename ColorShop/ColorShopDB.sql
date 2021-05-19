@@ -52,8 +52,7 @@ create table Stock
     id int identity primary key,
     product int not null foreign key references Products(id),
     location int not null foreign key references Locations(id),
-    quantity int not null,
-    max int not null,
+    quantity int not null
 );
 
 create table Cart
@@ -86,10 +85,10 @@ insert into OrderDetails (orderid, product, quantity) values
 (1, 1, 2),
 (1, 3, 1);
 
-insert into Stock (product, location, quantity, max) values 
-(1, 1, 8, 10),
-(1, 2, 5, 5),
-(2, 1, 10, 10),
-(2, 2, 5, 5),
-(3, 1, 9, 10),
-(3, 2, 5, 5);
+insert into Stock (product, location, quantity) values 
+(1, 1, 8),
+(1, 2, 5),
+(2, 1, 10),
+(2, 2, 5),
+(3, 1, 9),
+(3, 2, 5);

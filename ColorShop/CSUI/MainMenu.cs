@@ -27,7 +27,7 @@ namespace CSUI
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("[1] Go to Products Menu");
                 Console.WriteLine("[2] Go to Users Menu");
-                Console.WriteLine("[3] Go to StoreFront Menu");
+                Console.WriteLine("[3] Go to Locations Menu");
                 Console.WriteLine("[4] View cart");
                 Console.WriteLine("[5] Access Manager Menu");
                 Console.WriteLine("[0] Exit");
@@ -43,9 +43,9 @@ namespace CSUI
                         MenuFactory.GetMenu("user", _user).Start();
                         break;
                     case "3":
-                        Console.WriteLine("Store Locations:");
-                        ViewLocations();
-                        //MenuFactory.GetMenu("location", _user).Start();
+                        //Console.WriteLine("Store Locations:");
+                        //ViewLocations();
+                        MenuFactory.GetMenu("location", _user).Start();
                         break;
                     case "4":
                         Console.WriteLine("Selected \"View cart\"");
