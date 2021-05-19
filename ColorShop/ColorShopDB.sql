@@ -1,10 +1,10 @@
---drop table Customers
---drop table Locations
---drop table Products
---drop table Orders
---drop table OrderDetails
---drop table Stock
---drop table Cart
+
+drop table Stock
+drop table LineItems
+drop table Orders
+drop table Locations
+drop table Customers
+drop table Products
 
 create table Customers
 (
@@ -39,7 +39,7 @@ create table Orders
     time DATETIME not null
 )
 
-create table OrderDetails 
+create table LineItems 
 (
     id int identity primary key,
     orderid int not null foreign key references Orders(id),
@@ -55,15 +55,7 @@ create table Stock
     quantity int not null
 );
 
-create table Cart
-(
-    id int identity primary key,
-    customer int not null foreign key references Customers(id),
-    product int not null foreign key references Products(id),
-    location int not null foreign key references Locations(id),
-    quantity int not null
 
-)
 
 insert into Customers (name, username, password) VALUES
 ('Kolby McDaniel', 'kolbym', 'kolby'),
@@ -81,7 +73,7 @@ insert into Products (name, price, description) values
 insert into Orders (customer, location, total, time) values 
 (1, 1, 27.50, '2021-05-16 12:30:00');
 
-insert into OrderDetails (orderid, product, quantity) values 
+insert into LineItems (orderid, product, quantity) values 
 (1, 1, 2),
 (1, 3, 1);
 
@@ -92,3 +84,4 @@ insert into Stock (product, location, quantity) values
 (2, 2, 5),
 (3, 1, 9),
 (3, 2, 5);
+
