@@ -2,6 +2,6 @@ namespace CSUI
 {
     public interface IMenu
     {
-         void Start();
+        void Start();
     }
 }
