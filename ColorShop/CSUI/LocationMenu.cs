@@ -172,7 +172,7 @@ namespace CSUI
                 }
             } while (repeat2);
 
-            Order newOrder = newOrder = new Order(_user, location, 0.0, DateTime.Now);
+            Order newOrder = new Order(_user, location, 0.0, DateTime.Now);
 
             do
             {
@@ -221,7 +221,7 @@ namespace CSUI
                                         {
                                             case "1":
                                             case "yes":
-                                                //Order addedOrder = _shopBL.AddOrder(newOrder);
+                                                Order addedOrder = _shopBL.AddOrder(newOrder);
                                                 Console.WriteLine("Order completed!");
                                                 repeat = false;
                                                 repeat3 = false;

@@ -24,7 +24,9 @@ namespace CSDL
         List<Stock> GetInventory(int locationId);
 
 
-        //Order AddOrder(Order order);
+        Order AddOrder(Order order);
         List<Order> GetAllOrders();
+
+        LineItem AddLineItem(LineItem item);
     }
 }

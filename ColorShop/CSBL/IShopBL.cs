@@ -26,9 +26,8 @@ namespace CSBL
 
         List<Stock> GetInventory(Location location);
 
-        //Cart AddCartItem(Cart cartItem);
 
-        //Order AddOrder(Order order);
+        Order AddOrder(Order order);
         List<Order> GetAllOrders();
     }
 }

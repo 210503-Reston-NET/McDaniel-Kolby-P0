@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using CSModels;
 using CSDL;
@@ -93,18 +94,32 @@ namespace CSBL
             return _repo.GetInventory(locationId);
         }
 
-        /*
+        
         
         public Order AddOrder(Order order)
         {
-            return _repo.AddOrder(order);
+            
+            order.Time = DateTime.Now;
+            Order addedOrder = _repo.AddOrder(order);
+            //*
+            foreach(LineItem item in order.LineItems)
+            {
+                LineItem added = _repo.AddLineItem(item);
+                if (added == null)
+                {
+                    throw new System.Exception($"The Item {item.Product} could not be added to the order.");
+                }
+            }
+            //*/
+            return addedOrder;
         }
-        */
+        
         public List<Order> GetAllOrders()
         {
             return _repo.GetAllOrders();
         }
 
+    
         
     }
 }

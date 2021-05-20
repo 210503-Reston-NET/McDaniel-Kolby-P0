@@ -5993,8 +5993,8 @@
     },
     "CSBL/1.0.0": {
       "type": "project",
-      "path": "../CSbl/CSBL.csproj",
-      "msbuildProject": "../CSbl/CSBL.csproj"
+      "path": "../CSBL/CSBL.csproj",
+      "msbuildProject": "../CSBL/CSBL.csproj"
     },
     "CSDL/1.0.0": {
       "type": "project",

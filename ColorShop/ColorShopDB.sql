@@ -59,7 +59,8 @@ create table Stock
 
 insert into Customers (name, username, password) VALUES
 ('Kolby McDaniel', 'kolbym', 'kolby'),
-('Marielle Nolasco', 'trainer', 'p@$$word');
+('Marielle Nolasco', 'trainer', 'p@$$word'),
+('Tester 1', '1', '1');
 
 insert into Locations (city, state, manager) values 
 ('Jacksonville', 'Florida', 1),
@@ -85,3 +86,9 @@ insert into Stock (product, location, quantity) values
 (3, 1, 9),
 (3, 2, 5);
 
+--Select * from Customers;
+--Select * from Locations;
+--Select * from Products;
+--select * from Stock;
+--select * from Orders;
+--select * from LineItems;
