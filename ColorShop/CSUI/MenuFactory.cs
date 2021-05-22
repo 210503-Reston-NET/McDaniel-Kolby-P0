@@ -32,7 +32,7 @@ namespace CSUI
                 case "main":
                     return new MainMenu(new ShopBL(new RepoDB(context)), user);
                 case "manager":
-                    return new ManagerMenu();
+                    return new ManagerMenu(new ShopBL(new RepoDB(context)), user);
                 case "product":
                     return new ProductMenu(new ShopBL(new RepoDB(context)), user);
                 case "user":

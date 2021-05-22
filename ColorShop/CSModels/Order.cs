@@ -37,5 +37,35 @@ namespace CSModels
             sb.Append($" \n Total amount: ${Total} \n Time: {Time} \n");
             return sb.ToString();
         }
+        public string ToStringHistoryCost()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($" Total Cost: ${Total} \n Date: {Time} \n Customer: {Customer.Name} \n Location: {Location.City}, {Location.State} \n Order:");
+            int count = 0;
+            foreach(LineItem line in LineItems)
+            {
+                sb.Append(line.ToStringHistory());
+                if (++count != LineItems.Count)
+                    sb.Append(",");
+                else sb.Append("\n");
+            }
+            
+            return sb.ToString();
+        }
+        public string ToStringHistoryDate()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($" Date: {Time} \n Total Cost: ${Total} \n Customer: {Customer.Name} \n Location: {Location.City}, {Location.State} \n Order:");
+            int count = 0;
+            foreach(LineItem line in LineItems)
+            {
+                sb.Append(line.ToStringHistory());
+                if (++count != LineItems.Count)
+                    sb.Append(",");
+                else sb.Append("\n");
+            }
+            
+            return sb.ToString();
+        }
     }
 }

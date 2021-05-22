@@ -22,7 +22,10 @@ namespace CSModels
         {
             return $"   LineItem: {Quantity} x {Product.Name} \n   Price: ${Quantity * Product.Price} \n";
         }
-
+        public string ToStringHistory()
+        {
+            return $" {Quantity} x {Product.Name}";
+        }
 
     }
 }

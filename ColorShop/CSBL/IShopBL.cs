@@ -29,5 +29,13 @@ namespace CSBL
 
         Order AddOrder(Order order);
         List<Order> GetAllOrders();
+
+        List<Order> GetLocationOrders(Location location, int sort);
+        List<Order> GetUserOrders(Customer customer, int sort);
+
+        Location CheckManager(Customer user);
+
+        Stock AddStock(Stock stock, Location location, int quantity);
+        //Stock AddProduct(Location location, Product product, int quantity);
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bpKpUFa5xjOfS0VNtuRKpZxfyJCH9qI/ZeHLQGzaQNEEjxDnzFMFbMxoCOECefhsQYAbAVza9A1VIdhRjg/+fw==",
+  "dgSpecHash": "t7AeDV3Li3KQCzhUVr2gViGvOHMQR6FQ9JHHY1xrcgg5BCoHWBgms3b+w5YOaCZ831ahCshv6xf41d0FNeC23Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\CSBL\\CSBL.csproj",
+  "projectFilePath": "C:\\Users\\kolby\\Revature\\McDaniel-Kolby-P0\\ColorShop\\CSbl\\CSBL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kolby\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\kolby\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

@@ -109,6 +109,7 @@ namespace CSBL
                 {
                     throw new System.Exception($"The Item {item.Product} could not be added to the order.");
                 }
+                Stock updatedStock = _repo.AddStock(item, order.Location, item.Quantity * -1);
             }
             //*/
             return addedOrder;
@@ -119,7 +120,24 @@ namespace CSBL
             return _repo.GetAllOrders();
         }
 
-    
-        
+        public List<Order> GetLocationOrders(Location location, int sort)
+        {
+            return _repo.GetLocationOrders(location, sort);
+        }
+
+        public List<Order> GetUserOrders(Customer customer, int sort)
+        {
+            return _repo.GetUserOrders(customer, sort);
+        }
+
+        public Location CheckManager(Customer user)
+        {
+            return _repo.CheckManager(user);
+        }
+
+        public Stock AddStock(Stock stock, Location location, int quantity)
+        {
+            return _repo.AddStock(stock, location, quantity);
+        }
     }
 }

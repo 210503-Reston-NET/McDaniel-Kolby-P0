@@ -25,42 +25,22 @@ namespace CSUI
             {
                 Console.WriteLine("\nStore Menu");
                 Console.WriteLine("What would you like to do?");
-                Console.WriteLine("[1] Visit a store location");
+                Console.WriteLine("[1] Make an order at a store location");
                 Console.WriteLine("[2] Search a store location");
                 Console.WriteLine("[3] View a location's order history");
-                Console.WriteLine("[4] Add a location {manager access only}");
-                Console.WriteLine("[5] Delete a location {manager access only}");
-                Console.WriteLine("[6] Replenish inventory at a store location {manager access only}");
-
                 Console.WriteLine("[0] Go back to Main Menu");
 
                 string input = Console.ReadLine();
                 switch (input)
                 {
                     case "1":
-                        ViewLocations();
+                        ViewLocations(1);
                         break;
                     case "2":
                         SearchLocation();
                         break;
-                    case "4":
-                        //CheckManager();
-                        //AddALocation();
-                        Console.WriteLine("Error: Not yet Implemented");
-                        break;
-                    case "5":
-                        //CheckManager(); 
-                        //DeleteALocation();
-                        Console.WriteLine("Error: Not yet Implemented");
-                        break;
                     case "3":
-                        //ViewOrderHistory
-                        Console.WriteLine("Error: Not yet Implemented");
-                        break;
-                    case "6":
-                        //CheckManager();
-                        //ReplenishInventory();
-                        Console.WriteLine("Error: Not yet Implemented");
+                        ViewLocations(2);
                         break;
                     case "0":
                         repeat = false;
@@ -75,6 +55,65 @@ namespace CSUI
 
         }
 
+        private void ViewOrderHistory(Location location)
+        {
+            Console.WriteLine("How would you like to sort the Order Histories?");
+            Console.WriteLine("[1] Date (most recent to least recent)");
+            Console.WriteLine("[2] Date (least recent to most recent)");
+            Console.WriteLine("[3] Cost (most expensive to least expensive");
+            Console.WriteLine("[4] Cost (least expensive to most expensive");
+            Console.WriteLine("[5] Go back");
+            bool repeat = true;
+            do
+            {
+                string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "1":
+                        Console.WriteLine($"\nOrder History for {location.City}, {location.State}:\n");
+                        List<Order> history1 = _shopBL.GetLocationOrders(location, 1);
+                        foreach(Order order in history1)
+                        {
+                            Console.WriteLine(order.ToStringHistoryDate());
+                        }
+                        repeat = false;
+                        break;
+                    case "2":
+                        Console.WriteLine($"\nOrder History for {location.City}, {location.State}:\n");
+                        List<Order> history2 = _shopBL.GetLocationOrders(location, 2);
+                        foreach(Order order in history2)
+                        {
+                            Console.WriteLine(order.ToStringHistoryDate());
+                        }
+                        repeat = false;
+                        break;
+                    case "3":
+                        Console.WriteLine($"\nOrder History for {location.City}, {location.State}:\n");
+                        List<Order> history3 = _shopBL.GetLocationOrders(location, 3);
+                        foreach(Order order in history3)
+                        {
+                            Console.WriteLine(order.ToStringHistoryCost());
+                        }
+                        repeat = false;
+                        break;
+                    case "4":
+                        Console.WriteLine($"\nOrder History for {location.City}, {location.State}:\n");
+                        List<Order> history4 = _shopBL.GetLocationOrders(location, 4);
+                        foreach(Order order in history4)
+                        {
+                            Console.WriteLine(order.ToStringHistoryCost());
+                        }
+                        repeat = false;
+                        break;
+                    case "5":
+                        return;
+                    default:
+                        Console.WriteLine("invalid input");
+                        break;
+                }
+            } while (repeat);
+        }
+
         private void SearchLocation()
         {
             Console.WriteLine("Enter the city of the location you would like to search: ");
@@ -84,7 +123,8 @@ namespace CSUI
             try
             {
                 Location foundLocation = _shopBL.GetLocation(new Location(city, state));
-                Console.WriteLine(foundLocation.ToString());
+                Console.WriteLine("Store found! \n");
+                Console.Write(foundLocation.ToString());
             }
             catch (Exception ex)
             {
@@ -93,7 +133,7 @@ namespace CSUI
             }
         }
 
-        private void ViewLocations()
+        private void ViewLocations(int option)
         {
             List<Location> locations = _shopBL.GetAllLocations();
             if (locations.Count == 0) Console.WriteLine("No locations in database. You should add some.");
@@ -108,7 +148,12 @@ namespace CSUI
                 }
 
                 bool repeat = true;
-                Console.WriteLine("Choose which location's inventory you would like to view. Otherwise type [0] to go back.");
+
+                if (option == 1)
+                    Console.WriteLine("Choose which location's inventory you would like to view. Otherwise type [0] to go back.");
+                else if (option == 2)
+                    Console.WriteLine("Choose which location's order history you would like to view. Otherwise type [0] to go back.");
+
                 do
                 {
                     string input = Console.ReadLine();
@@ -122,7 +167,10 @@ namespace CSUI
                         }
                         else if (n <= locations.Count)
                         {
-                            GetInventory(locations[n - 1]);
+                            if (option == 1)
+                                GetInventory(locations[n - 1]);
+                            else if (option == 2)
+                                ViewOrderHistory(locations[n - 1]);
                             repeat = false;
                         }
                         else Console.WriteLine("invalid input");
@@ -260,43 +308,63 @@ namespace CSUI
             Console.WriteLine($"You chose {stock.Product.Name}.");
             Console.WriteLine("Input how many you would like to add to your order. Type [0] to go back.");
             bool repeat = true;
+            bool match = false;
             do
             {
                 string input = Console.ReadLine();
                 int n;
-                int quantity = 0;
-                if (order.Total > 0.0)
-                {
-                    foreach (LineItem item in order.LineItems)
-                    {
-                        if (item.Product.Equals(stock.Product))
-                        {
-                            quantity = item.Quantity;
-                            break;
-                        }
-                    }
-                }
                 if (int.TryParse(input, out n))
                 {
-                    if (input == "0")
+                    // if items already in order
+                    if (order.Total > 0.0)
                     {
-                        repeat = false;
-                        return order;
+                        //Case: Items already in order and there is a match with the input
+                        foreach (LineItem item in order.LineItems)
+                        {
+                            if (item.Product.Equals(stock.Product))
+                            {
+                                match = true;
+                                if (n == 0)
+                                {
+                                    repeat = false;
+                                    return order;
+                                }
+                                else if ((n + item.Quantity) <= stock.Quantity)
+                                {
+
+                                    Console.WriteLine($"Adding {n} of the product {stock.Product.Name} to your order...");
+                                    item.Quantity = item.Quantity + n;
+                                    double total = n * stock.Product.Price;
+                                    order.Total = order.Total + total;
+                                    Console.WriteLine("Successfully added! \n");
+                                    return order;
+                                }
+                                else Console.WriteLine("Not enough in stock!");
+                                break;
+                            }
+                        }
                     }
-                    else if ((n + quantity) <= stock.Quantity)
+                    //Case: no matches
+                    if (match == false)
                     {
-                        Console.WriteLine($"Adding {n} of the product {stock.Product.Name} to your order...");
-
-                        double total = n * stock.Product.Price;
-                        order.Total = order.Total + total;
-                        LineItem newLineItem = new LineItem(order, stock.Product, n);
-                        order.LineItems.Add(newLineItem);
-                        //LineItem addedLineItem = _shopBL.AddLineItem(newLineItem);
-                        Console.WriteLine("successfully added!");
-                        return order;
-
+                        if (n == 0)
+                        {
+                            repeat = false;
+                            return order;
+                        }
+                        else if (n <= stock.Quantity)
+                        {
+                            Console.WriteLine($"Adding {n} of the product {stock.Product.Name} to your order...");
+                            double total = n * stock.Product.Price;
+                            order.Total = order.Total + total;
+                            LineItem newLineItem = new LineItem(order, stock.Product, n);
+                            order.LineItems.Add(newLineItem);
+                            //LineItem addedLineItem = _shopBL.AddLineItem(newLineItem);
+                            Console.WriteLine("successfully added!");
+                            return order;
+                        }
+                        else Console.WriteLine("Not enough in stock!");
                     }
-                    else Console.WriteLine("Not enough in stock!");
                 }
                 else Console.WriteLine("invalid input");
             } while (repeat);

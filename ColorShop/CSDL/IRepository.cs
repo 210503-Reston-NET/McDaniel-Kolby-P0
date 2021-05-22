@@ -28,5 +28,15 @@ namespace CSDL
         List<Order> GetAllOrders();
 
         LineItem AddLineItem(LineItem item);
+
+        Stock AddStock(LineItem item, Location location, int quantity);
+        Stock AddStock(Stock stock, Location location, int quantity);
+
+        List<Order> GetLocationOrders(Location location, int sort);
+        List<Order> GetUserOrders(Customer customer, int sort);
+
+        Location CheckManager(Customer user);
+
+        //Stock AddProduct(Location location, Product product, int quantity);
     }
 }

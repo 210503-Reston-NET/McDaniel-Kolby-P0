@@ -27,7 +27,8 @@ namespace CSUI
                 Console.WriteLine("[1] View full selection of users");
                 Console.WriteLine("[2] Search a user");
                 Console.WriteLine("[3] View your account");
-                Console.WriteLine("[4] Delete your account");
+                // TODO: delete an account
+                Console.WriteLine("[4] Delete your account {Not Implemented}");
                 Console.WriteLine("[0] Go back to Main Menu");
 
                 string input = Console.ReadLine();
@@ -40,7 +41,8 @@ namespace CSUI
                         SearchUser();
                         break;
                     case "3":
-                        Console.WriteLine(_user.ToString());
+                        Console.WriteLine("Account Information: \n");
+                        Console.Write(_user.ToString());
                         break;
                     case "4": 
                         Console.WriteLine("Error: Not yet Implemented");
@@ -70,7 +72,8 @@ namespace CSUI
             try
             {
                 Customer foundUser = _shopBL.GetUserName(new Customer(name));
-                Console.WriteLine(foundUser.ToString());
+                Console.WriteLine("User found! \n");
+                Console.Write(foundUser.ToString());
             }
             catch (Exception ex)
             {
@@ -94,7 +97,6 @@ namespace CSUI
                 }
 
                 bool repeat = true;
-                // TODO: OrderHistory
                 Console.WriteLine("Choose which account's order history you would like to view. Otherwise type [0] to go back.");
                 do 
                 {
@@ -109,14 +111,73 @@ namespace CSUI
                         }
                         else if(n <= users.Count) 
                         {
-                            Console.WriteLine("You chose " + users[n - 1].Name);
-                            // show order history here
+                            ViewOrderHistory(users[n - 1]);
+                            repeat = false;
                         }
                         else Console.WriteLine("invalid input");
                     }
                     else Console.WriteLine("invalid input");
                 } while (repeat);
             }
+        }
+
+        private void ViewOrderHistory(Customer customer)
+        {
+            Console.WriteLine("How would you like to sort the Order Histories?");
+            Console.WriteLine("[1] Date (most recent to least recent)");
+            Console.WriteLine("[2] Date (least recent to most recent)");
+            Console.WriteLine("[3] Cost (most expensive to least expensive");
+            Console.WriteLine("[4] Cost (least expensive to most expensive");
+            Console.WriteLine("[5] Go back");
+            bool repeat = true;
+            do
+            {
+                string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "1":
+                        Console.WriteLine($"\nOrder History for {customer.Name}:\n");
+                        List<Order> history1 = _shopBL.GetUserOrders(customer, 1);
+                        foreach(Order order in history1)
+                        {
+                            Console.WriteLine(order.ToStringHistoryDate());
+                        }
+                        repeat = false;
+                        break;
+                    case "2":
+                        Console.WriteLine($"\nOrder History for {customer.Name}:\n");
+                        List<Order> history2 = _shopBL.GetUserOrders(customer, 2);
+                        foreach(Order order in history2)
+                        {
+                            Console.WriteLine(order.ToStringHistoryDate());
+                        }
+                        repeat = false;
+                        break;
+                    case "3":
+                        Console.WriteLine($"\nOrder History for {customer.Name}:\n");
+                        List<Order> history3 = _shopBL.GetUserOrders(customer, 3);
+                        foreach(Order order in history3)
+                        {
+                            Console.WriteLine(order.ToStringHistoryCost());
+                        }
+                        repeat = false;
+                        break;
+                    case "4":
+                        Console.WriteLine($"\nOrder History for {customer.Name}:\n");
+                        List<Order> history4 = _shopBL.GetUserOrders(customer, 4);
+                        foreach(Order order in history4)
+                        {
+                            Console.WriteLine(order.ToStringHistoryCost());
+                        }
+                        repeat = false;
+                        break;
+                    case "5":
+                        return;
+                    default:
+                        Console.WriteLine("invalid input");
+                        break;
+                }
+            } while (repeat);
         }
     }
 }
