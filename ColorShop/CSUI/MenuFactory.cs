@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Entity = CSDL.Entities;
 using Model = CSModels;
+using Serilog;
 
 namespace CSUI
 {
@@ -25,19 +26,24 @@ namespace CSUI
 
             var context = new Entity.ComputerShopDBContext(options);
 
+            var myLog = Log.ForContext<MenuFactory>();
+
             switch (menuType.ToLower())
             {
                 case "welcome":
+                    myLog.Information("Accessing welcome menu");
                     return new WelcomeMenu(new ShopBL(new RepoDB(context)));
                 case "main":
+                    myLog.Information("Accessing main menu");
                     return new MainMenu(new ShopBL(new RepoDB(context)), user);
                 case "manager":
+                    myLog.Information("Accessing manager menu");
                     return new ManagerMenu(new ShopBL(new RepoDB(context)), user);
-                case "product":
-                    return new ProductMenu(new ShopBL(new RepoDB(context)), user);
                 case "user":
+                    myLog.Information("Accessing user menu");
                     return new UserMenu(new ShopBL(new RepoDB(context)), user);
                 case "location":
+                    myLog.Information("Accessing store menu");
                     return new LocationMenu(new ShopBL(new RepoDB(context)), user);
                 default:
                     return null;

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using CSBL;
 using CSModels;
+using Serilog;
 
 namespace CSUI
 {
@@ -35,12 +36,15 @@ namespace CSUI
                 switch (input)
                 {
                     case "1":
+                        Log.Information("Selected to view all users");
                         ViewUsers();
                         break;
                     case "2":
+                        Log.Information("Selected to search a user");
                         SearchUser();
                         break;
                     case "3":
+                        Log.Information("Selected to view account");
                         Console.WriteLine("Account Information: \n");
                         Console.Write(_user.ToString());
                         break;
@@ -49,6 +53,7 @@ namespace CSUI
                         //DeleteAccount();
                         break;
                     case "0":
+                        Log.Information("Selected to go back to main menu");
                         repeat = false;
                         break;
                     default:
@@ -74,6 +79,7 @@ namespace CSUI
                 Customer foundUser = _shopBL.GetUserName(new Customer(name));
                 Console.WriteLine("User found! \n");
                 Console.Write(foundUser.ToString());
+                Log.Information($"Found user {foundUser.Name}");
             }
             catch (Exception ex)
             {
@@ -111,6 +117,7 @@ namespace CSUI
                         }
                         else if(n <= users.Count) 
                         {
+                            Log.Information($"Selected to view {users[n - 1].Name}'s order history");
                             ViewOrderHistory(users[n - 1]);
                             repeat = false;
                         }
@@ -136,6 +143,7 @@ namespace CSUI
                 switch (input)
                 {
                     case "1":
+                        Log.Information("Selected to sort by date (most recent to least recent)");
                         Console.WriteLine($"\nOrder History for {customer.Name}:\n");
                         List<Order> history1 = _shopBL.GetUserOrders(customer, 1);
                         foreach(Order order in history1)
@@ -145,6 +153,7 @@ namespace CSUI
                         repeat = false;
                         break;
                     case "2":
+                        Log.Information("Selected to sort by date (least recent to most recent)");
                         Console.WriteLine($"\nOrder History for {customer.Name}:\n");
                         List<Order> history2 = _shopBL.GetUserOrders(customer, 2);
                         foreach(Order order in history2)
@@ -154,6 +163,7 @@ namespace CSUI
                         repeat = false;
                         break;
                     case "3":
+                        Log.Information("Selected to sort by cost (most expensive to least expensive)");
                         Console.WriteLine($"\nOrder History for {customer.Name}:\n");
                         List<Order> history3 = _shopBL.GetUserOrders(customer, 3);
                         foreach(Order order in history3)
@@ -163,6 +173,7 @@ namespace CSUI
                         repeat = false;
                         break;
                     case "4":
+                        Log.Information("Selected to sort by date (least expensive to most expensive)");
                         Console.WriteLine($"\nOrder History for {customer.Name}:\n");
                         List<Order> history4 = _shopBL.GetUserOrders(customer, 4);
                         foreach(Order order in history4)

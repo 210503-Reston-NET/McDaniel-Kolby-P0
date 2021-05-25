@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using CSModels;
 using CSBL;
+using Serilog;
 
 namespace CSUI
 {
@@ -19,6 +20,8 @@ namespace CSUI
         }
         public void Start() 
         {
+            var myLog = Log.ForContext<MainMenu>();
+            
             bool repeat = true;
             
             do
@@ -30,8 +33,7 @@ namespace CSUI
                 //Console.WriteLine("[3] Go to Products Menu");
                 Console.WriteLine("[3] Access Manager Menu");
                 Console.WriteLine("[0] Exit");
-                //while (repeat)
-                //{
+                
                 string input = Console.ReadLine();
                 switch (input) 
                 {
@@ -40,16 +42,20 @@ namespace CSUI
                         //MenuFactory.GetMenu("product", _user).Start();
                         //break;
                     case "2":
+                        myLog.Information("Selected go to users menu");
                         MenuFactory.GetMenu("user", _user).Start();
                         break;
                     case "1":
+                        myLog.Information("Selected go to store menu");
                         MenuFactory.GetMenu("location", _user).Start();
                         break;
                     case "3":
+                        myLog.Information("Selected access manager menu, checking if manager...");
                         // check if manager
                         CheckManager();
                         break;
                     case "0":
+                        myLog.Information("Selected exit from program");
                         Console.WriteLine("Exiting...");
                         repeat = false;
                         break;
@@ -66,6 +72,7 @@ namespace CSUI
             if (check == null) Console.WriteLine("Access prohibited. You are not on a manager account.");
             else
             {
+                Log.Information("Confirmed manager account");
                 MenuFactory.GetMenu("manager", _user).Start();
             }
         }

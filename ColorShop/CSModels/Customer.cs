@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace CSModels
 {
     public class Customer
     {
         // constructor here
+        private string _name;
+        private string _username;
+        private string _password;
         public Customer() {}
         public Customer(string name)
         {
@@ -26,9 +30,30 @@ namespace CSModels
         }
 
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string Name { 
+            get { return _name; }
+            set
+            {
+                if (String.IsNullOrWhiteSpace(value)) throw new Exception("Name cannot be empty!");
+                _name = value;
+            }
+        }
+        public string Username {
+            get { return _username; }
+            set
+            {
+                if (String.IsNullOrWhiteSpace(value)) throw new Exception("Username cannot be empty!");
+                _username = value;
+            }
+        }
+        public string Password {
+            get { return _password; }
+            set
+            {
+                if (String.IsNullOrWhiteSpace(value)) throw new Exception("Password cannot be empty!");
+                _password = value;
+            }
+        }
         public List<Order> OrderHistory { get; set; }
 
         public override string ToString()

@@ -4,6 +4,8 @@ namespace CSModels
 {
     public class Product
     {
+        private string _name;
+        private double _price;
         public Product() {}
         public Product(string name)
         {
@@ -20,8 +22,21 @@ namespace CSModels
         }
 
         public int Id { get; set; }
-        public string Name { get; set; }
-        public double Price { get; set; }
+        public string Name { 
+            get { return _name; }
+            set
+            {
+                if (String.IsNullOrWhiteSpace(value)) throw new Exception("Name cannot be empty!");
+                _name = value;
+            }
+        }
+        public double Price { 
+            get { return _price; }
+            set
+            {
+                _price = Math.Round(value, 2);
+            }
+        }
         public string Description { get; set; }
 
         public override string ToString()

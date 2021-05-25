@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using CSBL;
 using CSModels;
+using Serilog;
 
 namespace CSUI
 {
@@ -20,6 +21,8 @@ namespace CSUI
         }
         public void Start()
         {
+            var myLog = Log.ForContext<LocationMenu>();
+            
             bool repeat = true;
             do
             {
@@ -34,15 +37,19 @@ namespace CSUI
                 switch (input)
                 {
                     case "1":
+                        Log.Information("Selected make an order");
                         ViewLocations(1);
                         break;
                     case "2":
+                        Log.Information("Selected search a location");
                         SearchLocation();
                         break;
                     case "3":
+                        Log.Information("Selected view order history");
                         ViewLocations(2);
                         break;
                     case "0":
+                        Log.Information("Selected go back to main menu");
                         repeat = false;
                         break;
                     default:
@@ -70,6 +77,7 @@ namespace CSUI
                 switch (input)
                 {
                     case "1":
+                        Log.Information("Selected to sort by date (most recent to least recent)");
                         Console.WriteLine($"\nOrder History for {location.City}, {location.State}:\n");
                         List<Order> history1 = _shopBL.GetLocationOrders(location, 1);
                         foreach(Order order in history1)
@@ -79,6 +87,7 @@ namespace CSUI
                         repeat = false;
                         break;
                     case "2":
+                        Log.Information("Selected to sort by date (least recent to most recent)");
                         Console.WriteLine($"\nOrder History for {location.City}, {location.State}:\n");
                         List<Order> history2 = _shopBL.GetLocationOrders(location, 2);
                         foreach(Order order in history2)
@@ -88,6 +97,7 @@ namespace CSUI
                         repeat = false;
                         break;
                     case "3":
+                        Log.Information("Selected to sort by cost (most expensive to least expensive)");
                         Console.WriteLine($"\nOrder History for {location.City}, {location.State}:\n");
                         List<Order> history3 = _shopBL.GetLocationOrders(location, 3);
                         foreach(Order order in history3)
@@ -97,6 +107,7 @@ namespace CSUI
                         repeat = false;
                         break;
                     case "4":
+                    Log.Information("Selected to sort by cost (least expensive to most expensive)");
                         Console.WriteLine($"\nOrder History for {location.City}, {location.State}:\n");
                         List<Order> history4 = _shopBL.GetLocationOrders(location, 4);
                         foreach(Order order in history4)
@@ -125,6 +136,7 @@ namespace CSUI
                 Location foundLocation = _shopBL.GetLocation(new Location(city, state));
                 Console.WriteLine("Store found! \n");
                 Console.Write(foundLocation.ToString());
+                Log.Information($"Successfully searched store at {foundLocation.City}, {foundLocation.State}");
             }
             catch (Exception ex)
             {
@@ -165,8 +177,9 @@ namespace CSUI
                             Console.WriteLine("Returning to Locations Menu...");
                             repeat = false;
                         }
-                        else if (n <= locations.Count)
+                        else if (n > 0 && n <= locations.Count)
                         {
+                            Log.Information($"Selected location at {locations[n - 1].City}, {locations[n - 1].State}");
                             if (option == 1)
                                 GetInventory(locations[n - 1]);
                             else if (option == 2)
@@ -206,7 +219,7 @@ namespace CSUI
                 {
                     case "yes":
                     case "1":
-
+                        Log.Information("Selected start a new order");
                         repeat2 = false;
                         break;
                     case "no":
@@ -235,9 +248,9 @@ namespace CSUI
                         Console.WriteLine("Returning to Locations Menu...");
                         repeat = false;
                     }
-                    else if (n <= inventories.Count)
+                    else if (n > 0 && n <= inventories.Count)
                     {
-
+                        Log.Information($"Selected {inventories[n - 1].Product.Name}");
                         newOrder = AddToOrder(inventories[n - 1], newOrder);
 
 
@@ -269,6 +282,7 @@ namespace CSUI
                                         {
                                             case "1":
                                             case "yes":
+                                                Log.Information("Completed order");
                                                 Order addedOrder = _shopBL.AddOrder(newOrder);
                                                 Console.WriteLine("Order completed!");
                                                 repeat = false;
@@ -331,7 +345,7 @@ namespace CSUI
                                 }
                                 else if ((n + item.Quantity) <= stock.Quantity)
                                 {
-
+                                    Log.Information($"Selected to add {n} products to order");
                                     Console.WriteLine($"Adding {n} of the product {stock.Product.Name} to your order...");
                                     item.Quantity = item.Quantity + n;
                                     double total = n * stock.Product.Price;
@@ -354,6 +368,7 @@ namespace CSUI
                         }
                         else if (n <= stock.Quantity)
                         {
+                            Log.Information($"Selected to add {n} products to order");
                             Console.WriteLine($"Adding {n} of the product {stock.Product.Name} to your order...");
                             double total = n * stock.Product.Price;
                             order.Total = order.Total + total;

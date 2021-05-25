@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace CSModels
 {
     public class Location
     {
+        private string _city;
         public Location() {}
         public Location(string city, string state)
         {
@@ -20,7 +23,14 @@ namespace CSModels
         }
 
         public int Id { get; set; }
-        public string City { get; set; }
+        public string City { 
+            get { return _city; }
+            set
+            {
+                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$")) throw new Exception("City cannot have numbers!");
+                _city = value;
+            }
+        }
         public string State { get; set; }
         public Customer Manager { get; set; }
         public List<Order> OrderHistory { get; set; }

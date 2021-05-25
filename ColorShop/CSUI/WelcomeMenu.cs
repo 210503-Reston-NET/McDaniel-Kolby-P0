@@ -1,13 +1,13 @@
 using System;
 using CSBL;
 using CSModels;
+using Serilog;
 
 namespace CSUI
 {
     public class WelcomeMenu : IMenu
     {
         private IShopBL _shopBL;
-        private IMenu mainMenu;
         private Customer _user;
 
         public WelcomeMenu(IShopBL shopBL)
@@ -16,6 +16,8 @@ namespace CSUI
         }
         public void Start()
         {
+            var myLog = Log.ForContext<WelcomeMenu>();
+            
             bool repeat = true;
             Console.WriteLine("Welcome to The Colorful Shop Online!");
             while (repeat) 
@@ -29,21 +31,26 @@ namespace CSUI
                 {
                     case "1":
                     case "yes":
+                        myLog.Information("Selected add a new user");
                         if (!AddAUser())
                             break;
+                        myLog.Information($"Added user: {_user.Name}");
                         repeat = false;
-                        mainMenu = MenuFactory.GetMenu("main", _user);
+                        IMenu mainMenu = MenuFactory.GetMenu("main", _user);
                         mainMenu.Start();
                         break;
                     case "2":
                     case "no":
+                        myLog.Information("Selected log in");
                         if (!Login())
                             break;
+                        myLog.Information($"Logged in as: {_user.Name}");
                         repeat = false;
                         mainMenu = MenuFactory.GetMenu("main", _user);
                         mainMenu.Start();
                         break;
                     case "0":
+                        myLog.Information("Selected exit from program");
                         repeat = false;
                         break;
                     default:

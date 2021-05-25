@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using CSBL;
 using CSModels;
+using Serilog;
 
 namespace CSUI
 {
@@ -35,6 +36,7 @@ namespace CSUI
                 switch (input)
                 {
                     case "1":
+                        Log.Information("Selected to replenish inventory");
                         ViewLocations();
                         break;
                     case "2":
@@ -95,6 +97,7 @@ namespace CSUI
                         }
                         else if (n <= locations.Count)
                         {
+                            Log.Information($"Selected location {locations[n - 1].City}, {locations[n - 1].State}");
                             ReplenishInv(locations[n - 1]);
                             repeat = false;
                         }
@@ -131,8 +134,9 @@ namespace CSUI
                         repeat = false;
                         return;
                     }
-                    else if (n <= inventory.Count)
+                    else if (n > 0 && n <= inventory.Count)
                     {
+                        Log.Information($"Selected color {inventory[n - 1].Product.Name}");
                         bool repeat2 = true;
                         do
                         {
@@ -149,6 +153,7 @@ namespace CSUI
                                 }
                                 if (num > 0)
                                 {
+                                    Log.Information($"Selected to add {num} of stock to inventory");
                                     // add to stock
                                     Stock addedStock = _shopBL.AddStock(inventory[n - 1], location, num);
                                     if (addedStock == null) Console.WriteLine("Inventory could not be updated. (Server side error)");
